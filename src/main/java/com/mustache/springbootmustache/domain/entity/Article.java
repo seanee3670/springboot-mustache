@@ -1,5 +1,6 @@
 package com.mustache.springbootmustache.domain.entity;
 
+import com.mustache.springbootmustache.domain.dto.ArticleResponseDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,11 @@ public class Article {
     public Article(String title, String contents) {
         this.title = title;
         this.contents = contents;
+    }
+
+    public static ArticleResponseDto toDto(Article article) {
+        return new ArticleResponseDto(
+                article.getId(), article.getTitle(), article.getContents());
     }
 
 }
